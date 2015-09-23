@@ -42,8 +42,8 @@ It is helpful to create aliases in your `.bashrc` file for common operations:
 
 ```bash
 # .bashrc
-alias report_git_repos='gitx repos -u maiyln -p secret -o vervewireless'
-alias report_git_users='gitx users -u maiyln -p secret -o vervewireless'
+alias report_git_repos='gitx repos -u maiyln -o vervewireless'
+alias report_git_users='gitx users -u maiyln -o vervewireless'
 ```
 
 ## Usage
