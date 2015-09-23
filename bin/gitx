@@ -1,0 +1,40 @@
+#!/usr/bin/env ruby
+require 'bundler/setup'
+require 'io/console'
+require 'gitx'
+require 'formatter'
+
+$stderr.print 'Password: '
+$stderr.flush
+password = $stdin.noecho(&:gets).chomp
+
+report_type = ARGV.shift
+arguments = Hash[*ARGV]
+
+# Validate input
+if !arguments['-u'] || !password || !arguments['-o'] || !arguments['-f']
+  raise 'Must provide username, password and organization'
+  Process.exit!(false)
+end
+
+# Instantiate new GitHub connection
+client = Gitx.new(arguments['-u'], password, arguments['-o'])
+
+# Request Github
+begin
+  github_results = client.send(report_type)
+rescue => e
+  $stderr.puts "GitHub communication error: #{e.message}"
+  Process.exit!(false)
+end
+
+# Format Results
+begin
+  formatted_results = Formatter.format(github_results, arguments['-f'])
+rescue => e
+  $stderr.puts "A formatting error occured: #{e.message}"
+  Process.exit!(false)
+end
+
+$stdout.puts formatted_results
+Process.exit!(true)
