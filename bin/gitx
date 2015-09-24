@@ -4,20 +4,41 @@ require 'io/console'
 require 'gitx'
 require 'formatter'
 
+# Print help text
+if ARGV[0] == '--help' or ARGV[0] == '-h'
+  help_text = %q(usage: gitx <command> [<args>]
+
+  Some gitx commands are:
+    repos    fetch all Github repositories within an organization
+    users    fetch all Github users belonging to an organization
+
+  Examples
+    gitx repos -u hbbb -o vervewireless -f csv
+    gitx users -u hbbb -o vervewireless -f csv
+  )
+
+  $stdout.puts help_text
+  Process.exit!(true)
+end
+
+# Prompt for password
 $stderr.print 'Password: '
 $stderr.flush
 password = $stdin.noecho(&:gets).chomp
+$stderr.puts ''
 
+# Parse arguments
 report_type = ARGV.shift
 arguments = Hash[*ARGV]
 
 # Validate input
 if !arguments['-u'] || !password || !arguments['-o'] || !arguments['-f']
-  raise 'Must provide username, password and organization'
+  puts 'Must provide username, password, organization and format'
   Process.exit!(false)
 end
 
-# Instantiate new GitHub connection
+
+# Initialize GitHub connection
 client = Gitx.new(arguments['-u'], password, arguments['-o'])
 
 # Request Github

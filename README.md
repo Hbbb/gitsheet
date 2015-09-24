@@ -95,3 +95,11 @@ Get all repositories and write output to a .csv file:
 ```bash
 $ gitx repos -u testuser -p secret -o vervewireless -f csv > report.csv
 ```
+
+## TODO
+
+Here are the next steps for Gitx
+  - Add unit tests
+  - Leverage Ruby gem to handle command line argument parsing, control flow etc.
+  - Better error handling
+  - More informative error messages
