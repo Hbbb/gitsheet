@@ -1,20 +1,20 @@
 #!/usr/bin/env ruby
 require 'bundler/setup'
 require 'io/console'
-require 'gitx'
+require 'gitsheet'
 require 'formatter'
 
 # Print help text
 if ARGV[0] == '--help' or ARGV[0] == '-h'
-  help_text = %q(usage: gitx <command> [<args>]
+  help_text = %q(usage: gitsheet <command> [<args>]
 
-  Some gitx commands are:
+  Some gitsheet commands are:
     repos    fetch all Github repositories within an organization
     users    fetch all Github users belonging to an organization
 
   Examples
-    gitx repos -u hbbb -o vervewireless -f csv
-    gitx users -u hbbb -o vervewireless -f csv
+    gitsheet repos -u hbbb -o vervewireless -f csv
+    gitsheet users -u hbbb -o vervewireless -f csv
   )
 
   $stdout.puts help_text
@@ -39,7 +39,7 @@ end
 
 
 # Initialize GitHub connection
-client = Gitx.new(arguments['-u'], password, arguments['-o'])
+client = Gitsheet.new(arguments['-u'], password, arguments['-o'])
 
 # Request Github
 begin

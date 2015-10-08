@@ -3,7 +3,7 @@ $LOAD_PATH.unshift(File.expand_path('../lib', File.dirname(__FILE__)))
 require 'pry'
 require 'vcr'
 require 'pry-byebug'
-require 'gitx'
+require 'gitsheet'
 require 'formatter'
 
 VCR.configure do |c|

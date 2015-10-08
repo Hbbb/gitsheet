@@ -1,8 +1,8 @@
 require 'rest-client'
-require 'gitx/version'
-require 'gitx/pagelinks'
+require 'gitsheet/version'
+require 'gitsheet/pagelinks'
 
-class Gitx
+class Gitsheet
   def initialize(username, password, organization)
     @auth = "#{username}:#{password}"
     @org = organization

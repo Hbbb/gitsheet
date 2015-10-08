@@ -1,9 +1,9 @@
 require 'spec_helper'
 
-describe 'Gitx' do
-  let(:github_client) { Gitx.new('testUser', 'testPass', 'testOrg') }
+describe 'Gitsheet' do
+  let(:github_client) { Gitsheet.new('testUser', 'testPass', 'testOrg') }
   let(:github_repos_mock) { File.open('./spec/support/github_repos_mock.json').read }
-  let (:github_users_mock) { File.open('./spec/support/vcr/Gitx/_users/returns_array_of_GitHub_users_associated_with_an_organization.yml').read }
+  let (:github_users_mock) { File.open('./spec/support/vcr/Gitsheet/_users/returns_array_of_GitHub_users_associated_with_an_organization.yml').read }
   let (:github_commits_mock) { File.open('./spec/support/github_commits_mock.json').read }
 
   describe '#users', :vcr do
@@ -16,7 +16,7 @@ describe 'Gitx' do
   # describe '#repos', :vcr do
   #   it 'returns array of GitHub repositories associated with an organization' do
   #     repos = github_client.repos
-  #     expect(repos).to eq(File.open('./spec/support/vcr/Gitx/_repos/returns_array_of_GitHub_repositories_associated_with_an_organization.yml').read)
+  #     expect(repos).to eq(File.open('./spec/support/vcr/Gitsheet/_repos/returns_array_of_GitHub_repositories_associated_with_an_organization.yml').read)
   #   end
   # end
 
