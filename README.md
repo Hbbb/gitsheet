@@ -21,13 +21,15 @@ $ gem install gitsheet
 Synopsis:
 
 ```bash
-$ gitsheet [type] -u [username] -p [password] -o [organization] -f [format]
+$ gitsheet [type] -u [username] -o [organization] -f [format]
 ```
 Arguments:
 
 `type`  is the data type to fetch. Can be either 'repos' or 'users'.
 
 `-o` the GitHub organization to search within eg: 'vervewireless'
+
+`-f` the format to output the results in. Can be either 'csv' or 'json'
 
 ## Output
 
@@ -50,19 +52,19 @@ $ gitsheet ... | grep [keyword]
 Get all repositories in an organization:
 
 ```bash
-$ gitsheet repos -u testuser -p secret -o vervewireless
+$ gitsheet repos -u testuser -o vervewireless
 ```
 
 Get all members of an organization:
 
 ```bash
-$ gitsheet users -u testuser -p secret -o vervewireless
+$ gitsheet users -u testuser -o vervewireless
 ```
 
 Get all repositories and write output to a .csv file:
 
 ```bash
-$ gitsheet repos -u testuser -p secret -o vervewireless -f csv > report.csv
+$ gitsheet repos -u testuser -o vervewireless -f csv > report.csv
 ```
 
 ## Development
