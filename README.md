@@ -45,22 +45,6 @@ Keyword search through results:
 $ gitsheet ... | grep [keyword]
 ```
 
-## Configuration
-
-Place `bin/gitsheet` in your `$PATH` to be able to run the command globally:
-
-```bash
-$ cp gitsheet/bin/gitsheet usr/bin
-```
-
-It is helpful to create aliases in your `.bashrc` file for common operations:
-
-```bash
-# .bashrc
-alias report_git_repos='gitsheet repos -u maiyln -o vervewireless'
-alias report_git_users='gitsheet users -u maiyln -o vervewireless'
-```
-
 ## Examples
 
 Get all repositories in an organization:
